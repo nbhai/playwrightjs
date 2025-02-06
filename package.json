@@ -1,0 +1,20 @@
+{
+  "name": "playwrightjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^20.14.11"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "allure-commandline": "^2.29.0",
+    "playwrightjs": "file:",
+    "ts-node": "^10.9.2"
+  }
+}
