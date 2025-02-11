@@ -22,8 +22,13 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  outputDir:'test-results',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    screenshot: 'only-on-failure',
+    video:'on-first-retry',
+    acceptDownloads: true,
+    ignoreHTTPSErrors: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
@@ -33,6 +38,15 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    {
+      name: 'setup',
+      testMatch: '**/login.setup.spec.js',
+    },
+    {
+      name: 'e2e tests logged in',
+      testMatch: '**/shoppingcart.spec.js',
+      dependencies: ['setup'],
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
