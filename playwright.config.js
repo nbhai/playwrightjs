@@ -11,6 +11,7 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -21,12 +22,29 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  outputDir:'test-results',
+  reporter: [
+    ['html'],
+    ['list'],
+    ['json', { outputFile: 'test-results.json' }],
+  ],
+  outputDir: 'test-results',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // proxy: {
+    //   server: 'http://my-proxy:8080',
+    //   username: 'user',
+    //   password: 'secret'
+    // },
+    // baseURL: 'https://api.github.com',
+    // extraHTTPHeaders: {
+    //   // We set this header per GitHub guidelines.
+    //   'Accept': 'application/vnd.github.v3+json',
+    //   // Add authorization token to all requests.
+    //   // Assuming personal access token available in the environment.
+    //   'Authorization': `token ${process.env.API_TOKEN}`,
+    // },
     screenshot: 'only-on-failure',
-    video:'on-first-retry',
+    video: 'on-first-retry',
     acceptDownloads: true,
     ignoreHTTPSErrors: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -40,27 +58,26 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'setup',
-      testMatch: '**/login.setup.spec.js',
-    },
-    {
-      name: 'e2e tests logged in',
-      testMatch: '**/shoppingcart.spec.js',
-      dependencies: ['setup'],
+      testMatch: 'auth.setup.js',
     },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: '.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

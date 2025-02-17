@@ -1,0 +1,166 @@
+{
+  "config": {
+    "configFile": "D:\\Git Workspace\\playwrightjs\\playwright.config.js",
+    "rootDir": "D:/Git Workspace/playwrightjs/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/Git Workspace/playwrightjs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "setup",
+        "name": "setup",
+        "testDir": "D:/Git Workspace/playwrightjs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "auth.setup.js"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Git Workspace/playwrightjs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Git Workspace/playwrightjs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "3way",
+    "version": "1.50.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.setup.js",
+      "file": "auth.setup.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authentication",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 8619,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-02-13T10:34:58.961Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f376efe52c54b1a876fd-4eb1048decb54aee371c",
+          "file": "auth.setup.js",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "apitest.spec.js",
+      "file": "apitest.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 3062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-02-13T10:35:08.211Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d69353c7b3d3ce9bbf65-077e1d9e3d5a93d41def",
+          "file": "apitest.spec.js",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-02-13T10:34:57.798Z",
+    "duration": 13553.049999999996,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

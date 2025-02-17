@@ -15,6 +15,8 @@ test.describe('Playwright Test Fixture Example', () => {
   test.afterEach(async () => {
     await browser.close();  // Close the browser after each test
   });
+  
+  test.describe.configure({mode:'parallel'})
 
   // First test: Should open the example.com page and check the title
   test('should open the example.com page', async () => {

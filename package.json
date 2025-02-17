@@ -3,17 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.26.8",
+    "@babel/register": "^7.25.9",
+    "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.50.1",
     "@types/node": "^20.14.11"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^10.8.0",
     "allure-commandline": "^2.29.0",
+    "chai": "^5.1.2",
+    "cucumber": "^6.0.7",
+    "playwright": "^1.50.1",
     "playwrightjs": "file:",
     "ts-node": "^10.9.2"
   }
